@@ -1,5 +1,6 @@
 import './App.css';
 import Body from './Components/Body.js';
+import Navbar from './Components/Navbar.js';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 
       </header>
       <body>
+        <Navbar/>
         <Body />
 
       </body>

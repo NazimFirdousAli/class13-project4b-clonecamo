@@ -1,8 +1,13 @@
 import React from 'react';
 import Intro_Featured_image from '../images/Intro_Featured_Image_Empty.svg';
+import Intro_Brain from '../images/Intro_Brain.svg';
+import Intro_Front_Layer from '../images/Intro_Front_Layer.svg';
 
+
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -10,59 +15,98 @@ const useStyles = makeStyles((theme) => ({
         background: 'radial-gradient(circle, rgba(206,2,189,1) 0%, rgba(75,6,193,1) 70%)',
         boxSizing: 'borderBox',
     },
+    imgs:{
+        
+    
+    },
     grid1: {
         display: 'flex',
         [theme.breakpoints.up("sm")]: {
-            paddingTop: 50,
-            justifyContent: "flex-end",
-        },
-
-        [theme.breakpoints.down("sm")]: {
-            paddingTop: 0,
+            paddingTop: 100,
+            justifyContent: "flex-start",
+          },
+          [theme.breakpoints.down("sm")]: {
+            paddingTop: 20,
             justifyContent: "center",
-        },
+          },
     },
     grid2: {
         display: 'flex',
-        textAlign:'center',
-        marginTop:'-10px',
+
         [theme.breakpoints.up("sm")]: {
             paddingTop: 100,
-            justifyContent: "flex-start",
-        },
-        [theme.breakpoints.down("sm")]: {
-            paddingTop: 20,
+            justifyContent: "flex-end",
+            textAlign: 'center',
+          },
+      
+          [theme.breakpoints.down("sm")]: {
+            paddingTop: 0,
             justifyContent: "center",
-        },
+          },
     },
     div2: {
         color: 'White',
+        fontFamily: "'Montserrat', sans-serif",
 
     },
     div3: {
 
         fontSize: '100px',
         fontWeight: '500',
-        marginTop:'-20px',
+        marginTop: '-20px',
     },
     div4: {
         fontSize: '62px',
         fontWeight: '400',
-        marginTop: '-100px',
+        marginTop: '-80px',
 
     },
     div5: {
         color: 'White',
-        textAlign:'left',
-        fontSize: '22px',
-        fontWeight: '200',
-        padding: '50px',
-        paddingTop: '0px',
-        paddingLeft: '0px',
-        paddingRight: '182px'
+        textAlign: 'left',
+        fontSize: '24px',
+        fontWeight: '400',
+        margin:'50px',
+        paddingLeft: '90px',
+        paddingRight: '80px'
 
+    },  
+    
+    button1:{
+        padding: "0.8rem 1.5rem",
+        marginLeft:'115px',
+        display:'flex',
+        marginRight:'105px',
+        alignItems:'left',
 
-    }
+    },
+        
+    message: {
+        background: 'linear-gradient(to bottom, #23ffdb, #1b5dbf)',
+        color: 'White',
+        width: '200px',
+        heigth: '50px',
+        padding: '10px',
+        borderRadius: '300px',
+    },
+    image1:{
+        height: 500,
+        position: "absolute",
+        zIndex: 0,
+    },
+    
+    image2:{
+        height: 500,
+        position: "absolute",
+        zIndex: 0,
+    },
+
+    image3:{
+        height: 500,
+        position: "absolute",
+        zIndex: 0,
+    },
+      
 }));
 
 
@@ -73,8 +117,10 @@ function Body() {
         <div className={classes.root}>
             <Grid container spacing={0} direction='row-reverse' className={classes.parentGrid}>
                 <Grid item xs={12} sm={6}>
-                    <div >
-                        <img src={Intro_Featured_image} alt='ala' />
+                    <div className={classes.imgs} >
+                        <img src={Intro_Front_Layer} className={classes.image3} alt='aba'/>
+                        <img src={Intro_Brain} className={classes.image2} alt='aaa'/>
+                        <img src={Intro_Featured_image} className={classes.image1} alt='ala' />
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={6} className={classes.grid2}>
@@ -82,8 +128,11 @@ function Body() {
                         <h1 className={classes.div3}>CORTEX</h1>
                         <h2 className={classes.div4}> COPYWRITER</h2>
                         <p className={classes.div5}>
-                        Enhance your communications with psychology-based copywriting and UX writing
+                            Enhance your communications with psychology-based copywriting and UX writing
                         </p>
+                        <div className={classes.button1}>
+                        <Button className={classes.message}>Send a message</Button>
+                        </div>
                     </div>
                 </Grid>
             </Grid>
