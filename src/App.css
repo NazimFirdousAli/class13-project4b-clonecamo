@@ -2,13 +2,7 @@
   
 }
 
-.background{
-  background-color:radial-gradient(circle, rgba(206,2,189,1) 0%, rgba(75,6,193,1) 70%);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
+
 
 ::-webkit-scrollbar {
   width: 10px;

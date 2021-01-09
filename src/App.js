@@ -1,6 +1,7 @@
 import './App.css';
 import Body from './Components/Body.js';
 import Navbar from './Components/Navbar.js';
+import UxWriting from './Components/uxWriting.js';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <body>
         <Navbar/>
         <Body />
+        <UxWriting/>
+        
 
       </body>
       <footer>

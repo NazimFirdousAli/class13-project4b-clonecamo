@@ -12,6 +12,8 @@ import RainbowText from 'react-rainbow-text';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      position: 'fixed',
+      width:'100%'
     },
     menuButton: {
       marginRight: theme.spacing(2),

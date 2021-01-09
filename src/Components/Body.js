@@ -1,4 +1,7 @@
-import React from 'react';
+import React,{useRef} from 'react';
+import useWebAnimations from "@wellyshen/use-web-animations";
+
+
 import Intro_Featured_image from '../images/Intro_Featured_Image_Empty.svg';
 import Intro_Brain from '../images/Intro_Brain.svg';
 import Intro_Front_Layer from '../images/Intro_Front_Layer.svg';
@@ -14,21 +17,21 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         background: 'radial-gradient(circle, rgba(206,2,189,1) 0%, rgba(75,6,193,1) 70%)',
         boxSizing: 'borderBox',
+        height: '600px',
+        width:'100%'
+
     },
-    imgs:{
-        
-    
-    },
+
     grid1: {
         display: 'flex',
         [theme.breakpoints.up("sm")]: {
             paddingTop: 100,
             justifyContent: "flex-start",
-          },
-          [theme.breakpoints.down("sm")]: {
+        },
+        [theme.breakpoints.down("sm")]: {
             paddingTop: 20,
             justifyContent: "center",
-          },
+        },
     },
     grid2: {
         display: 'flex',
@@ -37,12 +40,12 @@ const useStyles = makeStyles((theme) => ({
             paddingTop: 100,
             justifyContent: "flex-end",
             textAlign: 'center',
-          },
-      
-          [theme.breakpoints.down("sm")]: {
+        },
+
+        [theme.breakpoints.down("sm")]: {
             paddingTop: 0,
             justifyContent: "center",
-          },
+        },
     },
     div2: {
         color: 'White',
@@ -66,21 +69,21 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
         fontSize: '24px',
         fontWeight: '400',
-        margin:'50px',
+        margin: '50px',
         paddingLeft: '90px',
         paddingRight: '80px'
 
-    },  
-    
-    button1:{
+    },
+
+    button1: {
         padding: "0.8rem 1.5rem",
-        marginLeft:'115px',
-        display:'flex',
-        marginRight:'105px',
-        alignItems:'left',
+        marginLeft: '115px',
+        display: 'flex',
+        marginRight: '105px',
+        alignItems: 'left',
 
     },
-        
+
     message: {
         background: 'linear-gradient(to bottom, #23ffdb, #1b5dbf)',
         color: 'White',
@@ -89,37 +92,76 @@ const useStyles = makeStyles((theme) => ({
         padding: '10px',
         borderRadius: '300px',
     },
-    image1:{
-        height: 500,
-        position: "absolute",
-        zIndex: 0,
-    },
-    
-    image2:{
+    image1: {
         height: 500,
         position: "absolute",
         zIndex: 0,
     },
 
-    image3:{
+    image2: {
         height: 500,
         position: "absolute",
         zIndex: 0,
     },
-      
+
+    image3: {
+        height: 500,
+        position: "absolute",
+        zIndex: 0,
+    },
+
 }));
 
 
 function Body() {
     const classes = useStyles();
 
+    const brainRef = useRef(null);
+    const lightRef = useRef(null);
+
+    useWebAnimations({
+        ref: brainRef,
+        keyframes:[
+            {transform:'translateY(0px)'},
+            {transform:'translateY(-40px)'},
+            {transform:'translateY(0px)'},
+        ],
+        timing:{
+            duration:6000,
+            iterations: Infinity,
+        }
+    })
+
+    useWebAnimations({
+        ref: lightRef,
+        keyframes:[
+            {opacity:0},
+            {opacity:0},
+            {opacity:0.1},
+            {opacity:0},
+            {opacity:0},
+            {opacity:0},
+            {opacity:0.3},
+            {opacity:0.4},
+            
+        ],
+        timing:{
+            duration:500,
+            iterations: Infinity,
+        }
+    })
+
+    
+
+
+
     return (
         <div className={classes.root}>
             <Grid container spacing={0} direction='row-reverse' className={classes.parentGrid}>
                 <Grid item xs={12} sm={6}>
                     <div className={classes.imgs} >
-                        <img src={Intro_Front_Layer} className={classes.image3} alt='aba'/>
-                        <img src={Intro_Brain} className={classes.image2} alt='aaa'/>
+                        <img ref={lightRef} src={Intro_Front_Layer} className={classes.image3} alt='aba' />
+                        <img ref={brainRef} src={Intro_Brain} className={classes.image2} alt='aaa' />
                         <img src={Intro_Featured_image} className={classes.image1} alt='ala' />
                     </div>
                 </Grid>
@@ -131,7 +173,7 @@ function Body() {
                             Enhance your communications with psychology-based copywriting and UX writing
                         </p>
                         <div className={classes.button1}>
-                        <Button className={classes.message}>Send a message</Button>
+                            <Button className={classes.message}>Send a message</Button>
                         </div>
                     </div>
                 </Grid>
