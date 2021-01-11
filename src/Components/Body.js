@@ -17,13 +17,17 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         background: 'radial-gradient(circle, rgba(206,2,189,1) 0%, rgba(75,6,193,1) 70%)',
         boxSizing: 'borderBox',
-        height: '600px',
+        height: '700px',
         width:'100%'
+    },
+    parentGrid:{
+        
 
     },
 
     grid1: {
         display: 'flex',
+        marginTop:'50px',
         [theme.breakpoints.up("sm")]: {
             paddingTop: 100,
             justifyContent: "flex-start",
@@ -35,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
     grid2: {
         display: 'flex',
+        marginTop:'50px',
 
         [theme.breakpoints.up("sm")]: {
             paddingTop: 100,
@@ -158,7 +163,7 @@ function Body() {
     return (
         <div className={classes.root}>
             <Grid container spacing={0} direction='row-reverse' className={classes.parentGrid}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} className={classes.grid1}>
                     <div className={classes.imgs} >
                         <img ref={lightRef} src={Intro_Front_Layer} className={classes.image3} alt='aba' />
                         <img ref={brainRef} src={Intro_Brain} className={classes.image2} alt='aaa' />

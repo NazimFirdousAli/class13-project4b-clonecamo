@@ -5,7 +5,9 @@ import services6 from '../images/services-6.svg'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-import useWebAnimations,{backInLeft} from "@wellyshen/use-web-animations";
+import useWebAnimations,{fadeInLeft} from "@wellyshen/use-web-animations";
+import Fade from 'react-reveal/Fade';
+
 
 
 
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     pic1: {
         display: 'flex',
         height: '600px',
-        width: '600px'
+        width: '600px',
     },
     para: {
         textAlign: 'Left',
@@ -59,13 +61,14 @@ const useStyles = makeStyles((theme) => ({
 
 function UxWriting() {
     const classes = useStyles();
-    const {keyframes,timing} = backInLeft;
+    const {keyframes,timing} = fadeInLeft;
     const { ref } = useWebAnimations({
         keyframes,
         timing: {
-          ...timing,
+            
           delay: 1000, // Delay 1s
           duration: timing.duration * 2, // Speed up the animation
+          overflow: 'hidden',
         },
       });
 
@@ -74,7 +77,9 @@ function UxWriting() {
             <Grid container spacing={3}>
                 <Grid item xs={6}>
                     <div className={classes.image}>
-                        <img ref={ref} className={classes.pic1} src={services6} alt='aaa' />
+                    <Fade left big>
+                        <img  className={classes.pic1} src={services6} alt='aaa' />
+                        </Fade>
                     </div>
                 </Grid>
                 <Grid item xs={6}>
