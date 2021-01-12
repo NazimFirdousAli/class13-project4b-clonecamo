@@ -2,6 +2,7 @@ import './App.css';
 import Body from './Components/Body.js';
 import Navbar from './Components/Navbar.js';
 import UxWriting from './Components/uxWriting.js';
+import Footer from './Components/Footer.js'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Navbar/>
         <Body />
         <UxWriting/>
+        <Footer />
         
 
       </body>
